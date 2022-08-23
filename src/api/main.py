@@ -1,8 +1,9 @@
-from flask import request
-from flask_restx import Resource, Api, Namespace
+from importlib.resources import Resource
+from flask_restx import Resource, Namespace
 
 Main = Namespace('Main')
 
-@app.route('/')
-def main():
-    return render_template('index.html')
+@Main.route('')
+class MainAPI(Resource):
+    def main(self):
+        return {"hello":"world!"}
