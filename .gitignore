@@ -3,7 +3,10 @@
 
 ### Data ###
 data/
-resource
+resource.*
+
+### key ###
+config.py
 
 ### Flask ###
 instance/*
