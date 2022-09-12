@@ -26,7 +26,7 @@ def signin():
         try:
             data = db_user.User.query.filter_by(id=id, password=pw).first()
             if data:
-                print(data.name)
+                session['userid'] = data.id
                 session['username'] = data.name
                 return redirect(url_for('Main.main'))
             else:
@@ -38,5 +38,6 @@ def signin():
 
 @Account.route('/signout')
 def signout():
+    session.pop('userid', None)
     session.pop('username', None)
     return redirect(url_for('Main.main'))

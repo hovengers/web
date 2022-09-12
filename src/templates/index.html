@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hoee Lab</title>
-</head>
-<body>
-    {% if name %}
-    <h1>{{ name }}님 환영합니다</h1> 
-    {% else %}
-    <h1>환영하긴한데.. 로그인하세용</h1>
-    {% endif %}
+{% extends "base.html" %}
+{% block content %}
 
-    <br>
-    <a href="signin">로그인</a>
-    <a href="signup">회원가입</a>
-</body>
-</html>
+{% if name %}
+<h2>{{ name }}님 환영합니다</h2>
+{% else %}
+<h2>환영하긴한데.. 로그인하세용</h2>
+{% endif %}
+
+<br>
+<a href="signin">로그인</a>
+<a href="signup">회원가입</a>
+
+{% endblock %}
