@@ -1,9 +1,10 @@
-from importlib.resources import Resource
-from flask_restx import Resource, Namespace
+from flask import Blueprint, render_template, session
 
-Main = Namespace('Main')
+Main = Blueprint('Main', __name__)
 
-@Main.route('')
-class MainAPI(Resource):
-    def main(self):
-        return {"hello":"world!"}
+@Main.route('/', methods=['GET', 'POST'])
+def main():
+    if session.get('username'):
+        return render_template('index.html', name=session.get('username'))
+    else:
+        return render_template('index.html')

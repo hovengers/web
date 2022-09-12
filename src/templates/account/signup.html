@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up - Hoee Lab</title>
+</head>
+<body>
+    <h1>회원가입</h1> 
+    <form method="post">
+        <label>ID - 실명, 한글 입력</label>
+        <input type="text" id="id" name="id" value="{{ id }}">
+        <br>
+        <label>Password - 초기 비밀번호</label>
+        <input type="password" id="pw" name="pw" value="{{ pw }}">
+        <br>
+        <label>Name - 초기 이름은 실명</label>
+        <input type="text" id="name" name="name" value="{{ name }}">
+        <br>
+        <input type="submit">
+    </form>
+</body>
+</html>
