@@ -201,3 +201,6 @@ series.drop('init', inplace=True)
 df4 = series.to_frame().reset_index()
 df4.rename(columns={'index':'user', 0:'counts'}, inplace=True)
 df4.to_sql(name='kkt_user_day_frequency', con=db_connection, if_exists='replace',index=False)
+
+conn.close()
+db_connection.dispose()
