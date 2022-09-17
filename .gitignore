@@ -2,8 +2,10 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=flask,visualstudiocode
 
 ### Data ###
-data/
+db/
+jupyter/
 resource.*
+KakaoTalkChats.txt
 
 ### key ###
 config.py
