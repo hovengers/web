@@ -149,6 +149,12 @@ def df2_datetime_gen(col1, col2):
 
 df2['datetime'] = df2.apply(lambda x: df2_datetime_gen(x['year'], x['date']), axis=1)
 
+# 전체 메시지 개수 저장(결측치 최대 제거 버전이 df2)
+raw_data = {'total': [len(df2)]}
+
+msgtotal = pd.DataFrame(raw_data)
+msgtotal.to_sql(name='kkt_msg_total', con=db_connection, if_exists='replace',index=False)
+
 users = userdf['user'].values
 series = pd.Series([0], index=['init'])
 

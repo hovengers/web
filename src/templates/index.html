@@ -3,12 +3,16 @@
 
 {% if name %}
 <h2>{{ name }}님 환영합니다</h2>
+
+<h4><a href="kakaotalk">우리들의 아름다운 기록 구경하기...</a></h4>
+
+<a href="signout">로그아웃</a>
 {% else %}
 <h2>환영하긴한데.. 로그인하세용</h2>
-{% endif %}
 
 <br>
 <a href="signin">로그인</a>
 <a href="signup">회원가입</a>
+{% endif %}
 
 {% endblock %}
