@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>비밀번호 변경</h2>
+<form method="post">
+    <label>현재 비밀번호</label>
+    <input type="password" id="c_pw" name="c_pw">
+    <br>
+    <label>새 비밀번호</label>
+    <input type="password" id="n_pw" name="n_pw">
+    <br>
+    <label>새 비밀번호 확인</label>
+    <input type="password" id="n_check_pw" name="n_check_pw">
+    <br>
+    {% if status %}
+    {{ status }}
+    <br>
+    {% endif %}
+    <input type="submit">
+</form>
+
+{% endblock %}

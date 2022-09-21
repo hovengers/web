@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>이름 변경</h2>
+<form method="post">
+    <label>새 이름</label>
+    <input type="text" id="n_name" name="n_name">
+    <br>
+    {% if status %}
+    {{ status }}
+    <br>
+    {% endif %}
+    <input type="submit">
+</form>
+
+{% endblock %}

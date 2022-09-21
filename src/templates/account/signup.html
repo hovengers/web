@@ -2,19 +2,19 @@
 {% block title %}Sign up - {% endblock %}
 {% block content %}
 
-<h2>회원가입</h2> 
-    <form method="post">
-        <label>ID - 실명, 한글 입력</label>
-        <input type="text" id="id" name="id" value="{{ id }}">
-        <br>
-        <label>Password - 초기 비밀번호</label>
-        <input type="password" id="pw" name="pw" value="{{ pw }}">
-        <br>
-        <label>Name - 초기 이름은 실명</label>
-        <input type="text" id="name" name="name" value="{{ name }}">
-        <br>
-        <input type="submit">
-    </form>
+<h2>회원가입</h2>
+<form method="post">
+    <label>ID - 실명, 한글 입력</label>
+    <input type="text" id="id" name="id" value="{{ id }}">
+    <br>
+    <label>Password - 초기 비밀번호</label>
+    <input type="password" id="pw" name="pw">
+    <br>
+    <label>Name - 초기 이름은 실명</label>
+    <input type="text" id="name" name="name" value="{{ name }}">
+    <br>
+    <input type="submit">
+</form>
 
 {{ status }}
 
