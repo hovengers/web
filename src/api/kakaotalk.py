@@ -1,5 +1,4 @@
 from flask import Blueprint, render_template, session, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
 import pymysql
 import config
 
@@ -17,25 +16,29 @@ def kakaotalk():
         data = curs.fetchall()
         msg_total = data[0][0]
 
+        # 랜덤 메시지 한 5~10개? 추억용...
+
         # 가장 많이 말한 메시지
         sql = "SELECT message, MAX(counts) FROM "+ config.db['database'] +".kkt_message_counts"
         curs.execute(sql)
         data = curs.fetchall()
         msg_most = data[0][0]
 
-        # 가장 많고 적은 대화 날짜
+        # 가장 많고 적은 대화 날짜(이거 한 상위 5개 하위 5개로 못하려나)
         sql = "SELECT * FROM "+ config.db['database'] +".kkt_date_counts WHERE counts=(SELECT MAX(counts) FROM "+ config.db['database'] +".kkt_date_counts) OR counts=(SELECT MIN(counts) FROM "+ config.db['database'] +".kkt_date_counts) ORDER BY counts DESC"
         curs.execute(sql)
         data = curs.fetchall()
         date_most = data[0][0]
         date_least = data[1][0]
 
-        # 가장 많고 적은 대화 시간
+        # 가장 많고 적은 대화 시간(얘도...)
         sql = "SELECT * FROM "+ config.db['database'] +".kkt_time_counts WHERE counts=(SELECT MAX(counts) FROM "+ config.db['database'] +".kkt_time_counts) OR counts=(SELECT MIN(counts) FROM "+ config.db['database'] +".kkt_time_counts) ORDER BY counts DESC"
         curs.execute(sql)
         data = curs.fetchall()
         time_most = data[0][0]
         time_least = data[1][0]
+
+        # 대화 시간 그래프 있으면 좋을텐데 plt 그래프 저장할말
 
         # 가장 많고 적게 말한 사람
         sql = "SELECT * FROM "+ config.db['database'] +".kkt_user_counts WHERE counts=(SELECT MAX(counts) FROM "+ config.db['database'] +".kkt_user_counts) OR counts=(SELECT MIN(counts) FROM "+ config.db['database'] +".kkt_user_counts) ORDER BY counts DESC"
@@ -58,6 +61,8 @@ def kakaotalk():
             if value[0] == session.get('userid'):
                 talk_rank = value[1]
 
+        # 전체 대화 랭킹도 보여주기
+
         # 일평균 발언 횟수
         sql = "SELECT * FROM "+ config.db['database'] +".kkt_user_day_frequency WHERE user='"+session.get('userid')+"'"
         curs.execute(sql)
@@ -71,6 +76,8 @@ def kakaotalk():
         for value in values:
             if value[0] == session.get('userid'):
                 day_talk_rank = value[1]
+
+        # 전체 일평균 발언 순위도 ㄱ
 
         con.close()
 
