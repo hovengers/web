@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>새 캡슐</h2>
+<form id="post" method="post">
+    <label>희망 공개 연도</label>
+    <select name="year">
+        {% for year in years %}
+        <option value="{{ year }}">{{ year }}</option>
+        {% endfor %}
+    </select>
+
+    <br>
+    
+    <label>캡슐 내용</label>
+    <input type="textarea" name="content">
+
+    <button id="tempsave">임시저장</button>
+    <br>
+    <input type="submit" alt="저장">
+</form>
+
+<script type="text/javascript">
+    $("#tempsave").click(function () {
+        var form = $("#post")[0];
+        var data = new FormData(form);
+
+        $.ajax({
+            type: "POST",
+            url: base_url + "/capsule/tmp/save",
+            data: data,
+            processData: false,
+			contentType: false,
+			cache: false,
+            success: function (response) {
+                alert("성공적으로 저장했습니다.");
+            },
+            error: function (request, status, error) {
+                alert(error);
+            },
+        });
+    });
+</script>
+{% endblock %}

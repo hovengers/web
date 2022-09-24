@@ -10,15 +10,10 @@ class Capsule(db.Model):
     __tablename__ = 'capsule'
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.ForeignKey('user.id'), nullable=False, index=True)
-    user_name = db.Column(db.ForeignKey('user.id'), nullable=False, index=True)
-    title = db.Column(db.String(45), nullable=False)
+    user_id = db.Column(db.String(45), nullable=False)
     content = db.Column(db.Text, nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False, server_default=db.FetchedValue())
+    created_at = db.Column(db.Date, nullable=False)
     post_at = db.Column(db.Integer, nullable=False)
-
-    user = db.relationship('User', primaryjoin='Capsule.user_id == User.id', backref='user_capsules')
-    user1 = db.relationship('User', primaryjoin='Capsule.user_name == User.id', backref='user_capsules_0')
 
 
 
@@ -89,5 +84,5 @@ class User(db.Model):
     __tablename__ = 'user'
 
     id = db.Column(db.String(20), primary_key=True)
-    password = db.Column(db.Text, nullable=False)
+    password = db.Column(db.String(70), nullable=False)
     name = db.Column(db.String(30), nullable=False)

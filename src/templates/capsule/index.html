@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>우리들의 캡슐...</h2>
+
+{% if data.message %}
+<p>{{ data.message }}</p>
+{% else %}
+{% for post in data.posts %}
+{{ post.created_at }}
+<br>
+{{ post.content }}
+{% endfor %}
+{% endif %}
+
+{% endblock %}
