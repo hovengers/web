@@ -43,7 +43,7 @@ def signout():
 @Account.route('/edit/password', methods=['GET', 'POST'])
 def editpw():
     if request.method == 'POST':
-        if True:
+        try:
             data = models.User.query.filter_by(id=session.get('userid')).first()
             if data and bcrypt.checkpw(request.form.get('c_pw').encode('utf-8'), data.password.encode('utf-8')):
                 con = pymysql.connect(host=config.db['host'], user=config.db['user'], password=config.db['password'], db=config.db['database'], charset='utf8')
@@ -57,7 +57,7 @@ def editpw():
                 return redirect(url_for('Main.main'))
             else:
                 return render_template('account/editpw.html', status='비밀번호가 일치하지 않습니다.')
-        else:
+        except:
             return render_template('account/editpw.html', status='비밀번호가 일치하지 않습니다.')
     else:
         return render_template('account/editpw.html')
