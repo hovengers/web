@@ -2,7 +2,6 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=flask,visualstudiocode
 
 ### Data ###
-db/
 jupyter/
 resource.*
 KakaoTalkChats.txt
@@ -77,8 +76,6 @@ cover/
 # Django stuff:
 *.log
 local_settings.py
-db.sqlite3
-db.sqlite3-journal
 
 # Flask stuff:
 instance/
