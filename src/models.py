@@ -13,7 +13,8 @@ class Capsule(db.Model):
     user_id = db.Column(db.String(45), nullable=False)
     content = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.Date, nullable=False)
-    post_at = db.Column(db.Integer, nullable=False)
+    post_at = db.Column(db.Date, nullable=False)
+    status = db.Column(db.Integer, nullable=False)
 
 
 
