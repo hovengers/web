@@ -1,0 +1,57 @@
+:root {
+    --pink: palevioletred;
+    --light-gray: #b3b3b3;
+    --gray: #555555;
+
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/*
+fonts
+'Single Day', cursive;
+'Gaegu', sans-serif;
+*/ 
+
+/* base */
+body {padding: 0 4vw;}
+
+h1 {font-family: 'Single Day', cursive;} /* title */
+h1 a {color: var(--pink); text-decoration: none;}
+h2 {font-family: 'Gaegu', sans-serif;}
+
+footer {text-align: center; padding-top: 5vw;}
+footer h6 {margin: 0;}
+
+
+/* root index.html */
+.user_nav {text-align: right; font-family: 'Single Day', cursive;}
+.user_nav ul {list-style: none; display: flex; flex-direction: row-reverse; }
+.user_nav li {padding: 0 1lvw;}
+.user_nav a {text-decoration: none; color: var(--gray);}
+
+#main {padding: 2vw 5vw 7vw;}
+#main h4 {line-height: 2em;}
+
+#function {text-align: center; font-family: 'Gaegu', sans-serif;}
+#function h2 {font-family: 'Single Day', cursive;}
+#function ul {display: flex; flex-wrap: wrap; padding: 3vw;}
+#function li {list-style: none; width: 50%; padding-bottom: 5vw;}
+#function a {display: inline-block; background-color: var(--light-gray); border-radius: 100%;}
+#function img {width: 20vw; height: 20vw; padding: 3vw;}
+
+
+/* kakaotalk */
+#kkt {text-align: center;}
+
+/* capsule */
+.new_capsule {padding: 0 1vw;}
+.new_capsule div {padding: 7px 0;}
+.new_capsule label, .new_capsule div:last-child {font-family: 'Gaegu', sans-serif;}
+.new_capsule textarea {margin-top: 5px; resize: none; height: 500px; width: 100%;}
+.new_capsule .btn {background-color: var(--light-gray); color: var(--gray); border: solid 1px; border-radius: 5%; padding: 4px 10px;}
+
+@media screen and (max-width: 700px) {
+    h1 a, .user_nav a, #function li {font-size: smaller;}
+    #main h2 {font-size: medium;}
+    #main h4 {font-size: small;}
+}
