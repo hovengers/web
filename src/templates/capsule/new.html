@@ -1,22 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
 <h2>새 캡슐</h2>
-<form id="post" method="post">
-    <label>희망 공개 연도</label>
-    <select name="year">
-        {% for year in years %}
-        <option value="{{ year }}">{{ year }}</option>
-        {% endfor %}
-    </select>
+<form class="new_capsule" id="post" method="post">
+    <div class="year">
+        <label>희망 공개 연도</label>
+        <select name="year">
+            {% for year in years %}
+            <option value="{{ year }}">{{ year }}</option>
+            {% endfor %}
+        </select>
+    </div>
     
-    <br>
     
-    <label>캡슐 내용</label>
-    <input type="textarea" name="content">
+    <div>
+        <label>캡슐 내용</label>
+        <br>
+        <textarea name="content"></textarea>
+    </div>
 
-    <button id="tempsave">임시저장</button>
-    <br>
-    <input type="submit" alt="저장">
+
+    <div style="text-align: center;">
+        <button id="tempsave" class="btn">임시저장</button> &nbsp; <input type="submit" class="btn" alt="저장">
+    </div>
 </form>
 
 <script type="text/javascript">
