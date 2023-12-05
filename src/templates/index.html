@@ -2,22 +2,49 @@
 {% block content %}
 
 {% if name %}
-<h2>{{ name }}님 환영합니다</h2>
-
-<h4>기능목록</h4>
-<p>
-    1. <a href="kakaotalk">카톡</a> <br>
-    2. <a href="capsule">캡슐</a>
-</p>
-
-<a href="signout">로그아웃</a>
-<a href="edit/password">비밀번호변경</a>
-<a href="edit/name">이름변경</a>
+<div class="user_nav">
+    <ul>
+        <li><a href="signout">로그아웃</a></li>
+        <li><a href="edit/password">비밀번호변경</a></li>
+        <li><a href="edit/name">이름변경</a></li>
+    </ul>
+</div>
 {% else %}
-<h2>환영하긴한데.. 로그인하세용</h2>
-<br>
-<a href="signin">로그인</a>
-<a href="signup">회원가입</a>
+<div class="user_nav">
+    <ul>
+        <li><a href="signin">로그인</a></li>
+        <li><a href="signup">회원가입</a></li>
+    </ul>
+</div>
 {% endif %}
+
+
+<section id="main">
+    {% if name %}
+    <h2>ㅎㅇ {{ name }}?</h2>
+    {% else %}
+    <h2>저장소입니다~</h2>
+    {% endif %}
+
+    <h4 data-aos="fade-up" data-aos-offset="50" data-aos-duration="1500">
+        호에에 저장소는 2015년 생성된 테일즈런너 길드였던 호에에 멤버들에 대해 깊이 파악하고 적극적인 길드원 간 소통을 돕는 미승인 저장소입니다.^^ 방가방가<br>
+        시작은 테런이지만 이제 아무도 하지 않고 카톡방만이 남아 그 인연을 이어가고 있습니다.<br>
+        수없이 많은 정기 모임을 가지며(이제 세는 것도 포기함 ㅂㅂ) 전국 방방곡곡을 돌아다녀 그 추억 역시 한바가지라고 할 수 있습니다.<br>
+        본 페이지는 사실 추억의 아카이빙과는 상관없으며(귀찮거든) 정기 모임에서 즐길만한 컨텐츠를 그때그때 생성합니다.<br>
+        즐겨주세용^^
+    </h4>
+</section>
+
+<section id="function">
+    <h2>~ Contents ~</h2>
+    <ul data-aos="fade-up" data-aos-offset="50" data-aos-duration="1500">
+        <li><a href="kakaotalk"><img src="../static/images/talk.png" alt="카톡"></a><br><br>카카오톡 기록</li>
+        <li><a href="capsule"><img src="../static/images/pill.png" alt="캡슐"></a><br><br>타임캡슐</li>
+    </ul>
+    <ul data-aos="fade-up" data-aos-offset="50" data-aos-duration="1500">
+        <li><a>퀴즈?</a></li>
+    </ul>
+</section>
+
 
 {% endblock %}
