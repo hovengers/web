@@ -59,6 +59,9 @@ footer h6 {margin: 0;}
 /* #kkt td:first-child {color: var(--pink);} */
 #kkt tr:hover {background-color: var(--gray); -webkit-box-shadow: 0 6px 6px -6px #0E1119; -moz-box-shadow: 0 6px 6px -6px #0E1119; box-shadow: 0 6px 6px -6px #0E1119;}
 #kkt td:hover {background-color: var(--dark-pink); color: var(--gray);}
+#kkt_search #word {resize: none; width: 100px; height: max-content; border:none; border-bottom: solid 1px;}
+#kkt_search #word:focus {outline: none;}
+#kkt_search #search {background-color: var(--light-gray); color: var(--gray); padding: 3px; border: solid 1px; border-radius: 10%;}
 
 /* capsule */
 .new_capsule {padding: 0 1vw;}
@@ -71,4 +74,6 @@ footer h6 {margin: 0;}
     h1 a, .user_nav a, #function li {font-size: smaller;}
     #main h2 {font-size: medium;}
     #main h4 {font-size: small;}
+
+    #kkt div {padding: 2vh 0;}
 }
