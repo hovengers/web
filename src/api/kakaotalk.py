@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, session, redirect, url_for
+from flask import Blueprint, render_template, request, session, redirect, url_for, jsonify
+from flask_cors import cross_origin
 import pymysql
 import config
 
@@ -204,4 +205,22 @@ def kakaotalk():
         }
         return render_template('kakaotalk/index.html', data=res)
     else:
-        return redirect(url_for('signin'))
+        return redirect(url_for('Account.signin'))
+    
+@Kakaotalk.route('/kakaotalk/search', methods=['GET'])
+def search():
+    word = request.args.get('word')
+
+    con = pymysql.connect(host=config.db['host'], user=config.db['user'], password=config.db['password'], db=config.db['database'], charset='utf8')
+    curs = con.cursor()
+
+    sql = "SELECT message FROM "+ config.db['database'] +".kkt_message_counts WHERE message LIKE '%"+ word +"%';"
+    curs.execute(sql)
+    data = curs.fetchall()
+    msg = []
+    for val in data:
+        msg.append(val[0])
+
+    con.close()
+
+    return jsonify({'msg':msg})
