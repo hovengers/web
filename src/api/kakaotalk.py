@@ -1,7 +1,6 @@
 from flask import Blueprint, render_template, request, session, redirect, url_for, jsonify
-from flask_cors import cross_origin
 import pymysql
-import config
+import kkt.config as config
 
 Kakaotalk = Blueprint('Kakaotalk', __name__)
 
@@ -16,6 +15,15 @@ def kakaotalk():
         curs.execute(sql)
         data = curs.fetchall()
         msg_total = data[0][0]
+
+        
+        # 전체 날짜
+        sql = "SELECT * FROM "+ config.db['database'] +".kkt_date"
+        curs.execute(sql)
+        data = curs.fetchall()
+        first_date = data[0][1]
+        last_date = data[1][1]
+        diff_date = data[2][1][0:4]
 
 
         # 연도별 메시지 개수
@@ -90,7 +98,7 @@ def kakaotalk():
 
 
         # 가장 적게 말한 메시지 10개
-        sql = "SELECT message, FORMAT(counts, 0) FROM "+ config.db['database'] +".kkt_message_counts ORDER BY counts LIMIT 10"
+        sql = "SELECT message, FORMAT(counts, 0) FROM "+ config.db['database'] +".kkt_message_counts ORDER BY counts, RAND() LIMIT 10"
         curs.execute(sql)
         data = curs.fetchall()
         msg_least_list = []
@@ -168,6 +176,10 @@ def kakaotalk():
         res = {
             'username':session.get('username'),
             'msg_total':msg_total,
+
+            'first_date':first_date,
+            'last_date':last_date,
+            'diff_date':diff_date,
             
             'start_year':start_year,
             'end_year':end_year,

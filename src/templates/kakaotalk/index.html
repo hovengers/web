@@ -6,7 +6,7 @@
     <h3>1. 우리는 얼마나 많은 대화를 했을까?</h3>
     
     <div data-aos="fade-up" data-aos-offset="50" data-aos-duration="1500">
-        <h4>1-1. 우리는 {{ data.start_year }}년부터 {{ data.end_year }}년까지
+        <h4>1-1. 우리는 {{ data.first_date }}부터 {{ data.last_date }}까지 {{ data.diff_date }}일간
             총 {{ data.msg_total }}마디를 했습니다.^^</h4>
     </div>
 
@@ -158,11 +158,7 @@
     </div>
 
     <div data-aos="fade-up" data-aos-offset="50" data-aos-duration="1500">
-        <h4>2-5. 가장 많이 보낸 단어</h4>
-    </div>
-
-    <div data-aos="fade-up" data-aos-offset="50" data-aos-duration="1500">
-        <h4>2-6. 이 단어는 몇 번이나 나왔을까욘?</h4>
+        <h4>2-5. 이 단어는 몇 번이나 나왔을까욘?</h4>
         <p id="kkt_search">
             <label>단어: </label>
             <input type="textarea" id="word">
@@ -174,7 +170,7 @@
 
     <h3>3. 누가 제일 많이 말하지?</h3>
     <p>
-        일단 본인 {{ data.username }}은(는) 이 톡방에서 {{ data.talk_rank }}위고, {{ data.num_freq }}번 말했어욘ㅎ
+        일단 {{ data.username }}은(는) 이 톡방에서 {{ data.talk_rank }}위고, {{ data.num_freq }}번 말했어욘ㅎ
         {% if data.talk_rank < 5 %}
         자주 오네요!
         {% elif data.talk_rank < 9 %}
@@ -243,7 +239,7 @@
 
     <div data-aos="fade-up" data-aos-offset="50" data-aos-duration="1500">
         <h4>3-5. 언제 오세요?</h4>
-        <p>마지막 카카오톡 날짜인 {{ data.last_day }}로부터 며칠 전에 마지막으로 왔을까요? 보고싶습니다 여러분...</p>
+        <p>마지막 카카오톡 날짜인 {{ data.last_date }}로부터 며칠 전에 마지막으로 왔을까요? 보고싶습니다 여러분...</p>
         <table data-aos="fade-up" data-aos-offset="50" data-aos-duration="1500">
             <tr>
                 <th>순위</th>
@@ -262,10 +258,6 @@
 
 
     <h3>내년에도 함께해주세요 ♡</h3>
-
-
-    <p>남은것:<br>
-    시작날짜, 마지막날짜, 총 일수 - 구하긴 다 구했는데 sql 테이블로 만들지 않은 상태</p>
 </section>
 
 <script type="text/javascript">
