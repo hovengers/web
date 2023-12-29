@@ -1,7 +1,7 @@
 from flask import current_app, Blueprint, request, render_template, jsonify, session, redirect, url_for
 import models
 from flask_sqlalchemy import SQLAlchemy
-import pymysql, config
+import pymysql, kkt.config as config
 import bcrypt
 
 db = SQLAlchemy()
